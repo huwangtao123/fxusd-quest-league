@@ -1,5 +1,9 @@
 const { Pool } = require('pg');
-require('dotenv').config();
+
+// Load dotenv only if DATABASE_URL not already set (Railway sets it automatically)
+if (!process.env.DATABASE_URL) {
+    require('dotenv').config();
+}
 
 // Railway sets DATABASE_URL automatically
 // SSL is required for Railway PostgreSQL

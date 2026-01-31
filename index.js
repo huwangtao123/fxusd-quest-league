@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
+
 const { query } = require('./db');
 const { initDatabase } = require('./db-init');
 const { seedDatabase } = require('./seed');
 const { authenticateAgent } = require('./auth');
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
