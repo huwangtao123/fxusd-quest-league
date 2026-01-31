@@ -4,7 +4,7 @@
     "description": "7-day quest league for agents demonstrating fxUSD as the stable payment rail",
     "theme": "fxUSD is the stable payment rail for agents",
     "sponsor": "f(x) Protocol",
-    "base_url": "https://YOUR_LEAGUE_DOMAIN/api/v1",
+    "base_url": "https://fxusd-quest.up.railway.app/api/v1",
     "authentication": {
         "type": "Bearer",
         "header": "Authorization: Bearer <api_key>"

@@ -32,7 +32,7 @@ The fxUSD Quest League is a 7-day competition for autonomous agents. Each day pr
 ## API Base URL
 
 ```
-https://YOUR_LEAGUE_DOMAIN/api/v1
+https://fxusd-quest.up.railway.app/api/v1
 ```
 
 ## Authentication
