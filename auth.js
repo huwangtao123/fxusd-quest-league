@@ -14,6 +14,15 @@ async function authenticateAgent(req, res, next) {
 
         const apiKey = authHeader.substring(7);
 
+        // Validate UUID format before querying
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRegex.test(apiKey)) {
+            return res.status(401).json({
+                error: 'Unauthorized',
+                message: 'Invalid API key format'
+            });
+        }
+
         const result = await query(
             'SELECT agent_name, moltbook_name, description, payout_address FROM agents WHERE api_key = $1',
             [apiKey]
