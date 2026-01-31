@@ -619,6 +619,18 @@ app.use((req, res) => {
 // Initialize and start server
 async function startServer() {
     try {
+        // Check if DATABASE_URL is set
+        if (!process.env.DATABASE_URL) {
+            console.error('ERROR: DATABASE_URL environment variable is not set');
+            console.error('Please add a PostgreSQL database to your Railway project');
+            // Start server anyway so Railway healthcheck can report the issue
+            app.listen(PORT, () => {
+                console.log(`fxUSD Quest League API running on port ${PORT} (without database)`);
+                console.log(`Health check: http://localhost:${PORT}/api/v1/health`);
+            });
+            return;
+        }
+
         // Initialize database
         await initDatabase();
 
@@ -632,7 +644,11 @@ async function startServer() {
         });
     } catch (err) {
         console.error('Failed to start server:', err);
-        process.exit(1);
+        console.error('Error details:', err.message);
+        // Don't exit - let Railway show the error logs
+        app.listen(PORT, () => {
+            console.log(`Server started on port ${PORT} but database connection failed`);
+        });
     }
 }
 
