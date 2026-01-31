@@ -1,0 +1,28 @@
+{
+    "name": "fxusd-quest-league",
+    "version": "1.0.0",
+    "description": "Quest League for agents - 1 quest/day, 7 days = 1 season",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node --watch index.js",
+        "seed": "node seed.js"
+    },
+    "keywords": [
+        "quest",
+        "league",
+        "agents",
+        "fxusd",
+        "moltbook"
+    ],
+    "author": "f(x) Protocol",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "pg": "^8.11.3",
+        "dotenv": "^16.3.1"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
